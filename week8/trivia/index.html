@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            function checkAnswer1(event) {
+                let button = event.target;
+
+                if (button.id == "button1b") {
+                    button.style.backgroundColor = "Green";
+                    document.querySelector("#output1").innerHTML = "Correct!";
+                } else {
+                    button.style.backgroundColor = "Red";
+                    document.querySelector("#output1").innerHTML = "Incorrect.";
+                }
+            }
+
+            function checkAnswer2(event) {
+                let button = event.target;
+                let input = document.querySelector("#input2");
+
+                if (input.value == "Ireland") {
+                    input.style.backgroundColor = "Green";
+                    document.querySelector("#output2").innerHTML = "Correct!";
+                } else {
+                    input.style.backgroundColor = "Red";
+                    document.querySelector("#output2").innerHTML = "Incorrect.";
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>Select leap year from below</h3>
+                <button id="button1a" onclick="checkAnswer1(event)">1998</button>
+                <button id="button1b" onclick="checkAnswer1(event)">2080</button>
+                <button id="button1c" onclick="checkAnswer1(event)">1954</button>
+                <button id="button1d" onclick="checkAnswer1(event)">2062</button>
+                <button id="button1e" onclick="checkAnswer1(event)">2110</button>
+                <p id="output1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>What country located on British Isles is a member state of the European Union?</h3>
+                <input placeholder="Answer Here" type="text" id="input2"></input>
+                <button id="button2a" onclick="checkAnswer2(event)">Check!</button>
+                <p id="output2"></p>
+            </div>
+        </div>
+    </body>
+
+</html>

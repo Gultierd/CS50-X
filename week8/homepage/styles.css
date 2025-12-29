@@ -1,0 +1,33 @@
+body {
+    background-color: #343434;
+}
+
+.header {
+    color: #E4D00A;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+p {
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.text-def {
+    text-align: left;
+    color: white;
+}
+
+.blur {
+    text-shadow: 2px 2px 3px yellow;
+}
+
+img {
+    display: block;
+    width: auto;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}

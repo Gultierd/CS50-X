@@ -1,0 +1,25 @@
+HTML
+<nav>
+<a>
+<button>
+<span>
+<div>
+<h1>
+<p>
+<meta>
+<picture>
+<img>
+
+
+CSS
+background-color
+color
+margin-bottom
+text-align
+font-weight
+padding-left
+padding-right
+etc.
+
+Bootstrap used to create a navigation bar on each page with buttons to other pages.
+Javascript to increase and decrease text size on text.html page.

@@ -1,0 +1,6 @@
+If users top 100 songs are represented in songs.db counting the average of each energy, valence and danceability of those songs would give us a set
+of characteristics we could later name - energy from 0 to 1 where 0 is more laid back and 1 is fast, same with valence (sad to happy) and danceability and
+describe aura by that set of named characteristics.
+
+It would not be very representative when listener is listening to both sides of spectrum - that's when average might not be the best case.
+Median value could be a better idea?

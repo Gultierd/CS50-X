@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <div class="section">
+        <h2>Logged in as {{ username }}</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Stock Symbol</th>
+                    <th>Shares</th>
+                    <th>Share Price</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+            <!-- looping through actions in our stocks database -->
+                {% for stock in stocks %}
+                    <tr>
+                        <td>{{stock.symbol}}</td>
+                        <td>{{stock.shares}}</td>
+                        <td>{{stock.price}}</td>
+                        <td>{{stock.total}}</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td style="font-weight: 900;">Cash</td>
+                    <td>{{cash}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td style="font-weight: 900;">Total</td>
+                    <td>{{total}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

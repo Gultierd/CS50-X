@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>Homepage: Text</title>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg bg-dark">
+            <a class="navbar-brand text-def" href="index.html">Homepage</a>
+            <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link text-def" href="sound.html">Sounds!</a>
+                    <a class="nav-item nav-link text-def" href="picture.html">Pictures!</a>
+                    <a class="nav-item nav-link text-def" href="text.html">Text!</a>
+                </div>
+            </div>
+        </nav>
+        <h1 class="header blur">Some text</h1>
+        <p class="text-def">Fusce nec leo id mi eleifend luctus. Morbi pharetra semper mauris, sit amet elementum turpis condimentum id. Donec convallis justo luctus dui viverra, eget sollicitudin nulla dignissim. Quisque pharetra nisi felis, vitae vestibulum nunc posuere placerat. Aliquam interdum, sapien id mollis consequat, nibh eros faucibus massa, et pellentesque tortor eros ut risus. Vivamus ullamcorper, leo in porta elementum, dui ligula luctus risus, ut euismod erat metus vitae orci. Fusce sed pellentesque nunc. Suspendisse potenti. Fusce eu convallis felis. Quisque congue velit ipsum, quis congue nunc hendrerit ac. Suspendisse potenti. Suspendisse tristique pulvinar sodales. Donec at leo euismod diam tempor aliquet. Suspendisse eget finibus augue, ac viverra nulla.</p>
+        <h2 class="header blur">More text</h2>
+        <p class="text-def">Nulla at turpis aliquet, venenatis dolor eu, hendrerit leo. Donec egestas bibendum libero, eget varius sem sollicitudin vitae. Quisque fermentum lacus ligula, sit amet suscipit tellus pulvinar dictum. Sed non risus non nisi cursus congue. Nam porta ultrices enim, quis eleifend tellus mattis blandit. Phasellus cursus quam eget ligula efficitur, ut dignissim velit hendrerit. Vestibulum molestie justo ultricies ipsum mollis varius. Fusce elementum lectus ac massa tincidunt, eget dignissim velit iaculis.</p>
+
+        <div class="container">
+            <button id="zoom" class="btn btn-secondary">+Zoom Text</button>
+            <button id="reset" class="btn btn-secondary">-Zoom Text</button>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const zoom = document.getElementById('zoom');
+                const reset = document.getElementById('reset');
+                const textElements = document.querySelectorAll('p');
+                let currentFontSize = 16;
+
+                zoom.addEventListener('click', function() {
+                    currentFontSize += 2;
+                    textElements.forEach(el => {
+                        el.style.fontSize = `${currentFontSize}px`;
+                    });
+                });
+
+                reset.addEventListener('click', function() {
+                    currentFontSize -= 2;
+                    textElements.forEach(el => {
+                        el.style.fontSize = `${currentFontSize}px`;
+                    });
+                });
+            });
+        </script>
+    </body>
+
+</html>
