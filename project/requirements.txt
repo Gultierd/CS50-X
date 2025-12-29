@@ -1,0 +1,6 @@
+Flask
+os
+requests
+random
+flask_caching
+uuid

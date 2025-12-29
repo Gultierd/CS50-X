@@ -1,0 +1,11 @@
+sort1 uses: bubble sort
+
+How do you know?: Ends quickly when the list is sorted (iterates only once in this scenario)
+
+sort2 uses: merge sort
+
+How do you know?: Fastest out of these algorithms
+
+sort3 uses: selection sort
+
+How do you know?: Slowest out of three, always checks the entire array

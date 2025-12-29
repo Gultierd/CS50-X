@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--width of our page matches the device-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <!--adding bootstrap 5.3.8 library to our page-->
+        <title>Music Quiz</title>
+    </head>
+
+    <body class="bg-dark text-white">
+        <!--Setting background to a dark color with white text-->
+        <div class="container d-flex justify-content-center">
+            <!--Creating a container in the center of the page-->
+            <div class="col-md-8 col-lg-6">
+                <!--Creating a grid for upcoming elements, taking up either 8 or 6 (depending on screen size) out of 12 columns-->
+                <div class="card p-4 text-center mt-5 bg-secondary border-0 rounded shadow">
+                    <!--Creating a card section with padding, centered text, margin, background color and rounded borders-->
+                    <div class="card-body">
+                        <!--Now we fill the inside of our card section-->
+                        <h1 class="card-title text-warning">Music Quiz</h1>
+                        <p class="card-text text-white-50">Enter a Deezer playlist URL to start the quiz. Make sure it's a public playlist!</p>
+                        <!--Presenting text to user, asking for a url below-->
+                        <form action="/quiz" method="post">
+                            <div class="mb-3">
+                                <input type="text" class="form-control form-control-lg bg-dark text-white border-secondary rounded" name="playlist_url" placeholder="e.g. https://www.deezer.com/en/playlist/867825522" required>
+                            </div>
+                            <button type="submit" class="btn btn-warning btn-lg w-100 rounded">Start Quiz</button>
+                        </form>
+                        <!--Form for getting our playlist-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

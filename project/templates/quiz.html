@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--width of our page matches the device-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <!--adding bootstrap 5.3.8 library to our page-->
+        <title>Music Quiz</title>
+    </head>
+    <!-- creating a dark background with items in center-->
+
+    <body class="bg-dark text-white d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <!-- creating a card with a secondary color in background (grayish here)-->
+        <div class="card p-4 text-center mt-5 bg-secondary border-0 rounded shadow">
+            <div class="card-body">
+                <!-- displaying our question, formed in our helper function get_quiz_question-->
+                <h2 class="card-title text-warning">{{ question_text }}</h2>
+                <!-- adding a timer with logic written in script below-->
+                <p class="card-text text-white-50">Time remaining: <span id="timer">{{ round_duration }}</span> seconds</p>
+
+                <!-- audio element, it plays it the background as soon as the page is loaded-->
+                <audio autoplay>
+                    <source src="{{ track.preview_url }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+
+                <!-- creating buttons for each option, directing us to check_answer-->
+                <form action="/quiz_page" method="post">
+                    <div class="d-grid gap-2">
+                        {% for option in options %}
+                            <button type="submit" class="btn btn-outline-warning" name="answer" value="{{ option }}">
+                                {{ option }}
+                            </button>
+                        {% endfor %}
+                    </div>
+
+                    <input type="hidden" name="preview_url" value="{{ track.preview_url }}">
+                </form>
+            </div>
+        </div>
+
+        <script>
+            // as soon as the page is loaded we start the timer
+            document.addEventListener("DOMContentLoaded", function() {
+                // initial time limit here
+                let timeLeft = {{  round_duration }};
+                const timerElement = document.getElementById("timer");
+                const form = document.querySelector("form");
+
+                // we update the timer every second, with our interval being one second (as down below)
+                const timer = setInterval(function() {
+                    timeLeft--;
+                    timerElement.textContent = timeLeft;
+
+                    if (timeLeft <= 0) {
+                        // if time runs out we clear the interval, stopping the timer
+                        clearInterval(timer);
+
+                        // as we need to submit a value, we create a new incorrect one, that is our timeout
+                        const timeoutInput = document.createElement("input");
+                        timeoutInput.type = "hidden";
+                        timeoutInput.name = "answer";
+                        timeoutInput.value = "timeout";
+                        form.appendChild(timeoutInput);
+
+                        // we instantly submit that form
+                        form.submit();
+                    }
+                }, 1000); // timer ticks every 1000 milliseconds
+            });
+        </script>
+    </body>
+
+</html>
